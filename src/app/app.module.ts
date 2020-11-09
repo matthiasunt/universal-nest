@@ -6,9 +6,14 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SharedModule } from './modules/shared/shared.module';
+import { AboutComponent } from './components/about/about.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    AboutComponent
+  ],
   imports: [
     HttpClientModule,
     // Add .withServerTransition() to support Universal rendering.
@@ -19,6 +24,7 @@ import { SharedModule } from './modules/shared/shared.module';
 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'about', component: AboutComponent, pathMatch: 'full' },
       {
         path: 'speakers',
         loadChildren: () =>
@@ -31,4 +37,5 @@ import { SharedModule } from './modules/shared/shared.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+}
